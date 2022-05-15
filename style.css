@@ -1,0 +1,133 @@
+body {
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.pdn {
+  font-size: 30px;
+  position: relative;
+  overflow: hidden;
+  width: 11.625em;
+  height: 11.625em;
+  background: linear-gradient(#ffd862 7.875em, #f2623e 0);
+}
+
+.pdn__cameraReel {
+  position: absolute;
+  right: -0.9375em;
+  top: -3.125em;
+  width: 6.25em;
+  height: 6.25em;
+  border-radius: 50%;
+  background-color: #ee313d;
+  animation: camera-reel 20s linear infinite;
+}
+.pdn__cameraReel::before {
+  content: "";
+  position: absolute;
+  top: 0.625em;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1.875em;
+  width: 1.875em;
+  border-radius: 50%;
+  color: #8d2036;
+  background-color: currentColor;
+  box-shadow: 0 3.125em, 1.875em 1.5625em, -1.875em 1.5625em;
+}
+
+.pdn__camera {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4.6875em;
+  height: 7.8125em;
+}
+.pdn__camera::before {
+  content: "";
+  display: block;
+  height: 4.0625em;
+  width: 100%;
+  background-color: #ee313d;
+}
+.pdn__camera::after {
+  content: "";
+  position: absolute;
+  left: -0.9375em;
+  top: 1.25em;
+  width: 0.9375em;
+  height: 1.875em;
+  background-color: #8d2036;
+}
+
+.pdn__cameraStand {
+  display: block;
+  width: 100%;
+  height: calc(100% - 4.0625em);
+}
+.pdn__cameraStand::before, .pdn__cameraStand::after {
+  content: "";
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  clip-path: polygon(100% 0, 0 100%, 0 0);
+}
+.pdn__cameraStand::before {
+  background-color: #b22634;
+}
+.pdn__cameraStand::after {
+  background-color: #8d2036;
+  transform: scaleX(-1);
+}
+
+.pdn__cameraLights {
+  position: absolute;
+  top: -3.8125em;
+  left: -6.9375em;
+  width: 6em;
+  height: 11.625em;
+  background: linear-gradient(#f2623e 3.75em, #ee313d 3.75em, #ee313d 6em, #b22634 6em, #b22634 calc(100% - 3.75em), #8d2036 calc(100% - 3.75em));
+  clip-path: polygon(0 0, 100% 5.0625em, 100% calc(5.0625em + 1.875em), 0 100%);
+}
+
+.pdn__glass {
+  position: absolute;
+  height: 1.875em;
+  width: 0.625em;
+  bottom: calc(100% - 7.875em);
+}
+.pdn__glass::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.pdn__glass::after {
+  content: "";
+  position: absolute;
+  top: -2.25em;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1.875em;
+  height: 2.25em;
+  border-radius: 0 0 1.875em 1.875em;
+  background: linear-gradient(#ffffff 0.9375em, #ffd862 0);
+}
+
+.pdn__glass--isFirst {
+  left: 1em;
+}
+
+.pdn__glass--isSecond {
+  left: 3.25em;
+}
+
+@keyframes camera-reel {
+  100% {
+    transform: rotate(1turn);
+  }
+}
